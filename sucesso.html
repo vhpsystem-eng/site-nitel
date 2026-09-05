@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mensagem Enviada | Nitel</title>
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>    
+
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/site.webmanifest" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { 
+                extend: { 
+                    colors: { 
+                        primary: "#FF3B45",
+                        "background-dark": "#0F1115"
+                    }, 
+                    fontFamily: { 
+                        display: ["Outfit", "sans-serif"],
+                        sans: ["Inter", "sans-serif"]
+                    } 
+                } 
+            }
+        };
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-background-dark flex items-center justify-center min-h-screen p-4 transition-colors duration-300">
+    
+    <div class="max-w-md w-full bg-white dark:bg-slate-900 rounded-[3rem] p-12 shadow-2xl text-center border border-slate-100 dark:border-slate-800 transition-colors">
+        
+        <div class="w-20 h-20 bg-green-100 dark:bg-green-500/10 text-green-500 rounded-3xl flex items-center justify-center mx-auto mb-8 animate-bounce">
+            <span class="material-symbols-outlined text-5xl">check_circle</span>
+        </div>
+        
+        <h1 class="font-display text-4xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4 italic">
+            MENSAGEM <span class="text-primary">ENVIADA!</span>
+        </h1>
+        
+        <p class="text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-10 font-sans">
+            Obrigado por entrar em contato. Nossa equipe analisará sua mensagem e responderá o mais breve possível.
+        </p>
+
+        <a href="index.html" class="inline-block bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-lg dark:shadow-none">
+            Voltar para o Início
+        </a>
+    </div>
+
+</body>
+</html>

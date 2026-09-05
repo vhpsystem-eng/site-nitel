@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Cashback | Nitel</title>
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF3B45", // Vermelho Nitel
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#0F1115",
+                    },
+                    fontFamily: {
+                        display: ["Outfit", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style type="text/tailwindcss">
+        .nitel-pattern {
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
+        }
+        .text-outline {
+            -webkit-text-stroke: 2px white;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="group-hover:rotate-6 transition-transform">
+                        <img alt="Nitel Logo" class="h-10 w-10 object-contain" src="assets/logo.png"/>
+                    </div>
+                    <span class="font-display text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase italic">Nitel</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html">Início</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#collections">Coleções</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#stores">Nossas Lojas</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="contato.html">Contato</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span id="theme-toggle-dark-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-400 hidden dark:block">light_mode</span>
+                        <span id="theme-toggle-light-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-400 dark:hidden">dark_mode</span>
+                    </button>
+                    <a class="bg-primary hover:bg-red-600 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 flex items-center gap-2" href="index.html#stores">
+                        <span class="material-symbols-outlined text-sm text-white">location_on</span>
+                        Encontre uma Loja
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-primary overflow-hidden">
+        <div class="absolute inset-0 nitel-pattern opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <a href="index.html" class="inline-flex items-center gap-2 text-white/70 hover:text-white font-bold text-xs uppercase tracking-[0.2em] mb-12 group transition-all">
+                <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+                Voltar para a Home
+            </a>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 text-center lg:text-left">
+                    <span class="inline-block py-1 px-4 rounded bg-white text-primary font-bold text-xs mb-8 tracking-widest uppercase shadow-lg">
+                        Programa de Recompensas
+                    </span>
+                    
+                    <div class="font-display leading-[0.85] mb-8">
+                        <h1 class="text-7xl md:text-9xl font-black uppercase tracking-tighter text-white">
+                            CASH
+                        </h1>
+                        <div class="flex items-center justify-center lg:justify-start gap-4 -mt-2 md:-mt-4">
+                            <span class="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-outline">
+                                BACK
+                            </span>
+                            <div class="bg-slate-900 text-white p-3 md:p-4 rounded-xl rotate-12 shadow-2xl flex items-center gap-2 shrink-0">
+                                <span class="text-2xl md:text-4xl font-extrabold text-white">5%</span>
+                                <i class="fas fa-coins text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-lg md:text-xl text-white/90 max-w-lg mb-10 leading-relaxed mx-auto lg:mx-0 font-medium">
+                        Sua fidelidade premiada. Em todas as compras, você ganha crédito para seu próximo look na Nitel.
+                    </p>
+                </div>
+
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div class="relative p-4 border-2 border-white/20 rounded-[2.5rem] rotate-3 group hover:rotate-0 transition-all duration-500 shadow-3xl">
+                        <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl flex items-center justify-center">
+                            <img alt="Cashback Nitel" class="h-32 md:h-48 w-auto object-contain transition-transform group-hover:scale-110" src="assets/cashback.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-background-dark p-10 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-3xl">payments</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 uppercase">Desconto Imediato</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ganhe 5% de Cash Back em todas as compras para utilizar na sua próxima visita.</p>
+                </div>
+
+                <div class="bg-white dark:bg-background-dark p-10 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-3xl">calendar_today</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 uppercase">Prazo de 40 Dias</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Seu prêmio tem uma validade de 40 dias para ser aproveitado ao máximo.</p>
+                </div>
+
+                <div class="bg-white dark:bg-background-dark p-10 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-3xl">sync</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 uppercase">Sempre Ativo</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Cada compra gera descontos automáticos de 5% para economizar sempre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-6 uppercase leading-tight italic">
+                        REGRAS DE <br/><span class="text-primary">UTILIZAÇÃO.</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg">Confira as chaves para maximizar suas economias.</p>
+                </div>
+                <div class="md:w-1/2 p-12 md:p-20 space-y-10 text-white">
+                    <div class="flex items-start gap-6">
+                        <span class="font-display text-3xl font-black text-primary italic">01</span>
+                        <p class="text-lg font-medium">Em todas as compras você ganha 5%* de desconto para sua próxima compra.</p>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <span class="font-display text-3xl font-black text-primary italic">02</span>
+                        <p class="text-lg font-medium">A validade do prêmio é de 40 dias.</p>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <span class="font-display text-3xl font-black text-primary italic">03</span>
+                        <p class="text-lg font-medium">Válido para compras utilizadas no prazo de até 40 dias.</p>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-white/10">
+                        <p class="text-xs text-slate-400 italic">
+                            *Consulte em nossas lojas o valor mínimo de compra necessário para a utilização do prêmio acumulado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center">
+                <a class="inline-flex items-center gap-3 bg-primary hover:bg-red-600 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-2xl shadow-primary/30 uppercase tracking-widest" href="index.html#stores">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    Ir para uma Loja
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <p class="text-slate-500 text-xs mb-4">
+            © 2026 Nitel - Calçados e Confecções. Vestindo você e sua Familia.
+        </p>
+        
+        <a href="cashback-termo.html" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4">
+            Termos e Segurança de Dados
+        </a>
+    </footer>
+
+    <script>
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+    </script>
+
+</body>
+</html>

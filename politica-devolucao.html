@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Trocas e Devoluções | Nitel</title>
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF3B45",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#0F1115",
+                    },
+                    fontFamily: {
+                        display: ["Outfit", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style type="text/tailwindcss">
+        .nitel-pattern {
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="group-hover:rotate-6 transition-transform">
+                        <img alt="Nitel Logo" class="h-10 w-10 object-contain" src="assets/logo.png"/>
+                    </div>
+                    <span class="font-display text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase italic">Nitel</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html">Início</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#collections">Coleções</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#stores">Nossas Lojas</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="contato.html">Contato</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <span id="theme-toggle-dark-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-400 hidden dark:block">light_mode</span>
+                    <span id="theme-toggle-light-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-400 dark:hidden">dark_mode</span>
+                </button>
+                <a class="bg-primary hover:bg-red-600 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 flex items-center gap-2" href="index.html#stores">
+                    <span class="material-symbols-outlined text-sm text-white">location_on</span>
+                    Encontre uma Loja
+                </a>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-20 overflow-hidden">
+        <div class="absolute inset-0 nitel-pattern opacity-30 z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <div class="mb-6">
+                <span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Atendimento ao Cliente</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4">
+                TROCAS E <span class="text-primary italic">DEVOLUÇÕES.</span>
+            </h1>
+            <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto italic font-medium">
+                Sua satisfação é o nosso compromisso. Saiba como proceder com trocas de forma simples e transparente.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-12 pb-32">
+        <div class="bg-white dark:bg-slate-900/50 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-8 md:p-16 shadow-2xl shadow-slate-200/50 dark:shadow-none">
+            
+            <div class="space-y-16">
+                <section>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="w-12 h-1 bg-primary"></span>
+                        <h2 class="font-display text-3xl font-black uppercase tracking-tight">1. Condições Gerais</h2>
+                    </div>
+                    <div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                        <p>Para realizar qualquer troca ou devolução, é fundamental que o produto esteja em perfeitas condições, sem sinais de uso, lavagem ou odores. O item deve ser devolvido em sua embalagem original e obrigatoriamente acompanhado da <strong>Nota Fiscal</strong>.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="w-12 h-1 bg-primary"></span>
+                        <h2 class="font-display text-3xl font-black uppercase tracking-tight">2. Prazos Legais</h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-8 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-display text-2xl font-black italic text-primary mb-2">07 DIAS</h4>
+                            <p class="text-sm font-bold uppercase tracking-widest mb-4">Arrependimento</p>
+                            <p class="text-sm text-slate-500">Válido para compras realizadas fora do estabelecimento comercial (online).</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-700">
+                            <h4 class="font-display text-2xl font-black italic text-primary mb-2">30 DIAS</h4>
+                            <p class="text-sm font-bold uppercase tracking-widest mb-4">Defeitos</p>
+                            <p class="text-sm text-slate-500">Garantia contra defeitos de fabricação comprovados após análise técnica.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="w-12 h-1 bg-primary"></span>
+                        <h2 class="font-display text-3xl font-black uppercase tracking-tight">3. Reembolso</h2>
+                    </div>
+                    <div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                        <p>O estorno será processado conforme o método original de pagamento. Para cartões, o crédito poderá aparecer em até duas faturas. Para PIX ou Boleto, o depósito será feito em conta bancária de mesma titularidade em até 5 dias úteis.</p>
+                    </div>
+                </section>
+
+                <div class="mt-20 bg-slate-900 rounded-3xl p-10 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 nitel-pattern opacity-10"></div>
+                    <h4 class="font-display text-2xl font-bold text-white mb-4 relative z-10 italic uppercase">Precisa de ajuda agora?</h4>
+                    <p class="text-slate-400 mb-8 relative z-10">Fale diretamente com nossa equipe de suporte para agilizar seu processo.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                        <a href="https://wa.me/5511975365271" class="bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-all flex items-center justify-center gap-2 uppercase tracking-widest text-sm shadow-xl shadow-green-500/20">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Suporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <p class="text-slate-500 text-xs mb-4">© 2026 Nitel - Calçados e Confecções. Vestindo você e sua Familia.</p>
+    </footer>
+
+    <script>
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+    </script>
+
+</body>
+</html>

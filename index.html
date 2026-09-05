@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nitel | Calçados e Confecções</title>
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/site.webmanifest" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="group-hover:rotate-6 transition-transform">
+                    <img alt="Nitel Logo" class="h-10 w-10 object-contain" src="assets/logo.png"/>
+                </div>
+                <span class="font-display text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase italic">Nitel</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html">Início</a>
+                <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#collections">Coleções</a>
+                <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#app">App Nitel</a>
+                <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#stores">Nossas Lojas</a>
+                <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="contato.html">Contato</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <span id="theme-toggle-dark-icon" style="display:none" class="material-symbols-outlined text-slate-600 dark:text-slate-400">light_mode</span>
+                    <span id="theme-toggle-light-icon" style="display:none" class="material-symbols-outlined text-slate-600 dark:text-slate-400">dark_mode</span>
+                </button>
+                <a class="bg-primary hover:bg-red-600 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 flex items-center gap-2" href="#stores">
+                    <span class="material-symbols-outlined text-sm text-white">location_on</span>
+                    Encontre uma Loja
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="relative pt-20 overflow-hidden" id="home">
+<div class="absolute inset-0 nitel-pattern opacity-50 z-0"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1">
+<span class="inline-block py-1 px-3 rounded bg-primary/10 text-primary font-bold text-sm mb-6 tracking-wider uppercase">Referência em Calçados e Confecções</span>
+<h1 class="font-display text-6xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[0.9] mb-8">
+                        VISTA COM <br/>
+<span class="text-primary italic">ESTILO.</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg mb-10 leading-relaxed">
+                        Explore coleções selecionadas de calçados e moda urbana para quem dita tendências.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-bold text-center hover:opacity-90 transition-opacity" href="#collections">Ver Coleções</a>
+<a class="px-8 py-4 border-2 border-slate-200 dark:border-slate-800 font-bold rounded-lg text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#stores">Visite Nossas Lojas</a>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative">
+<div id="hero-carousel" class="relative rounded-3xl overflow-hidden shadow-2xl transform lg:rotate-3 aspect-[4/5]">
+
+    <!-- Slide 1: Campanha de moda -->
+    <div class="hero-slide absolute inset-0" style="opacity:1; transition: opacity 1s ease; pointer-events:auto;">
+        <img alt="Pessoas estilosas vestindo roupas Nitel" class="w-full h-full object-cover" src="assets/hero-urban.jpg"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+            <div class="text-white">
+                <p class="text-sm font-bold uppercase tracking-widest mb-1">Novidades</p>
+                <h3 class="text-2xl font-display font-bold">Outono Inverno '26</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Banner do App Nitel -->
+    <a href="#app" class="hero-slide absolute inset-0 block" style="opacity:0; transition: opacity 1s ease; pointer-events:none;">
+        <img alt="Divulgação do App Nitel - crediário, Pix e cashback" class="w-full h-full object-cover" src="assets/banner-app-nitel.png"/>
+    </a>
+
+    <!-- Setas de navegação -->
+    <button id="hero-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors backdrop-blur-sm" aria-label="Slide anterior">
+        <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <button id="hero-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors backdrop-blur-sm" aria-label="Próximo slide">
+        <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+
+    <!-- Indicadores -->
+    <div class="absolute bottom-5 right-5 flex gap-2 z-10">
+        <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white transition-all" data-slide="0" aria-label="Slide 1"></button>
+        <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-slide="1" aria-label="Slide 2"></button>
+    </div>
+</div>
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary rounded-2xl -z-10 hidden lg:block"></div>
+<div class="absolute -top-6 -right-6 w-48 h-48 border-4 border-slate-200 dark:border-slate-800 rounded-3xl -z-10 hidden lg:block"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50" id="collections">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+        <h2 class="font-display text-4xl md:text-5xl font-black mb-16 uppercase">Coleções em Destaque</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img alt="Calçados" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="assets/col-calcados.jpg"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 p-8 flex flex-col justify-end text-white text-left">
+                    <h3 class="font-display text-3xl font-bold">Calçados</h3>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img alt="Streetwear" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="assets/col-streetwear.jpg"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 p-8 flex flex-col justify-end text-white text-left">
+                    <h3 class="font-display text-3xl font-bold">Confecções</h3>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img alt="Acessórios" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="assets/col-acessorios.jpg"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 p-8 flex flex-col justify-end text-white text-left">
+                    <h3 class="font-display text-3xl font-bold">Acessórios</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-slate-900 relative overflow-hidden" id="app">
+    <div class="absolute inset-0 nitel-pattern opacity-20 z-0"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Card com o recorte da tela do App (cabeçalho + destaque principal) -->
+            <div class="flex justify-center order-2 lg:order-1">
+                <div class="relative w-full max-w-[380px] rounded-3xl overflow-hidden shadow-2xl transform lg:-rotate-2">
+                    <img alt="Tela do App Nitel mostrando crediário próprio e cashback" class="w-full h-auto block" src="assets/app-tela-crediario-crop.jpg"/>
+                </div>
+            </div>
+
+            <!-- Texto e recursos -->
+            <div class="order-1 lg:order-2 text-white">
+                <span class="inline-block py-1 px-3 rounded bg-primary/10 text-primary font-bold text-sm mb-6 tracking-wider uppercase">Novidade</span>
+                <h2 class="font-display text-4xl md:text-5xl font-black mb-6 uppercase leading-[0.95]">
+                    Conheça o <br/><span class="text-primary italic">App Nitel.</span>
+                </h2>
+                <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-lg">
+                    Tudo o que você precisa para cuidar das suas compras na palma da mão. Simples, rápido e seguro.
+                </p>
+
+                <div class="space-y-6 mb-10">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Acompanhe seu Crediário</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Consulte saldo devedor, parcelas em aberto e datas de vencimento do seu crediário próprio Nitel a qualquer momento.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">qr_code_2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Pague suas Parcelas via Pix</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Quite parcelas do crediário na hora, direto pelo app, com Pix. Sem filas e sem burocracia.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">redeem</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Consulte seu Cashback</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Veja quanto você já acumulou de cashback nas compras realizadas nas lojas Nitel e acompanhe seu saldo disponível.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-2 mb-6">
+                    <i class="fab fa-android text-green-400"></i>
+                    <span class="text-sm font-bold text-slate-200">Disponível para Android. Em breve no iOS.</span>
+                </div>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="inline-flex items-center gap-3 px-6 py-3 bg-white text-slate-900 rounded-xl font-bold hover:opacity-90 transition-opacity">
+                        <i class="fab fa-google-play text-xl"></i>
+                        <span class="text-left leading-tight text-sm">Disponível no<br/><span class="text-base font-black">Google Play</span></span>
+                    </a>
+                    <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 text-slate-400 rounded-xl font-bold cursor-not-allowed select-none">
+                        <i class="fab fa-apple text-2xl"></i>
+                        <span class="text-left leading-tight text-sm">Em breve na<br/><span class="text-base font-black">App Store</span></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-24" id="stores">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-5 gap-12">
+            <div class="lg:col-span-2">
+                <h2 class="font-display text-4xl font-black mb-6 uppercase">Nossas Lojas</h2>
+                <div id="lista-lojas" class="space-y-4 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
+                    
+                    <div onclick="focarLoja('Tatui', this)" class="loja-card p-5 border-2 border-primary bg-primary/5 rounded-xl cursor-pointer hover:shadow-lg transition-all group">
+                        <h4 class="font-bold text-lg">Nitel Tatui - Centro</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Rua: Onze de Agosto, 175, Centro Tatui/SP</p>
+                        
+                        <a href="https://wa.me/5511975371890" target="_blank" 
+                           onclick="event.stopPropagation();" 
+                           class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold rounded-lg transition-all shadow-sm hover:shadow-md">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            Conversar no WhatsApp
+                        </a>
+                    </div>
+
+                    <div onclick="focarLoja('Boituva', this)" class="loja-card p-5 border border-slate-200 dark:border-slate-800 rounded-xl cursor-pointer hover:border-primary transition-all group">
+                        <h4 class="font-bold text-lg">Nitel Boituva</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Rua: Cel. Eugenio Mota, 433, Centro Boituva/SP</p>
+                        
+                        <a href="https://wa.me/5511975365271" target="_blank" 
+                           onclick="event.stopPropagation();" 
+                           class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold rounded-lg transition-all shadow-sm hover:shadow-md">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            Conversar no WhatsApp
+                        </a>
+                    </div>
+
+                    <div onclick="focarLoja('Tatui II', this)" class="loja-card p-5 border border-slate-200 dark:border-slate-800 rounded-xl cursor-pointer hover:border-primary transition-all group">
+                        <h4 class="font-bold text-lg">Nitel Tatui II</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Rua: Onze de Agosto, 366, Centro Tatuí/SP</p>
+                        
+                        <a href="https://wa.me/5511941261115" target="_blank" 
+                           onclick="event.stopPropagation();" 
+                           class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold rounded-lg transition-all shadow-sm hover:shadow-md">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            Conversar no WhatsApp
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="lg:col-span-3 h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white" id="about">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <img alt="Interior" class="rounded-2xl aspect-square object-cover transform translate-y-8" src="assets/interior-loja.jpg"/>
+                <img alt="Detalhe" class="rounded-2xl aspect-square object-cover" src="assets/detalhe-moda.jpg"/>
+            </div>
+            <div>
+                <h2 class="font-display text-4xl md:text-5xl font-black mb-8 italic uppercase tracking-tight">Vestindo <br/>Você <br/>e sua Familia.</h2>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8">Fundada com a visão de trazer moda de alta qualidade, a Nitel cresceu para se tornar um pilar no varejo.</p>
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-px bg-primary"></div>
+                    <span class="font-display text-xl font-bold uppercase tracking-widest italic text-white">Desde 2000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <img alt="Nitel Logo" class="h-10 w-10 rounded-lg" src="assets/logo.png"/>
+                    <span class="font-display text-2xl font-black tracking-tight uppercase">Nitel</span>
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 mb-6">
+                    Loja de Calçados e Confecções Presente na Região de Boituva e Tatui.
+                </p>
+                
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all shadow-sm" href="https://www.facebook.com/Nitel21/#" target="_blank">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                    </a>
+                    
+                    <a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white transition-all shadow-sm" href="https://www.instagram.com/nitelboituva" target="_blank">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+
+                    <a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-[#39E09B] hover:border-[#39E09B] hover:text-[#191414] transition-all shadow-sm" href="https://linktr.ee/Nitelconcept?utm_source=linktree_profile_share&ltsid=af3a11c8-2569-4534-b0cd-4802cf0a840e" target="_blank">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="font-bold mb-6 uppercase tracking-wider">Navegação</h5>
+                <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                    <li><a class="hover:text-primary transition-colors" href="#home">Início</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#collections">Coleções</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#app">App Nitel</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#stores">Nossas Lojas</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#about">Sobre a Nitel</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold mb-6 uppercase tracking-wider">Suporte</h5>
+                <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                    <li><a class="hover:text-primary transition-colors" href="contato.html">Contato</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="perguntas-frequentes.html">Perguntas Frequentes</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="cashback.html">Cashback</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="politica-devolucao.html">Política de Devolução</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold mb-6 uppercase tracking-wider">Newsletter</h5>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Receba acesso antecipado a lançamentos e promoções exclusivas.</p>
+
+                <form id="newsletter-form" class="flex flex-col gap-3">
+                    <input type="hidden" name="access_key" value="2f0df8b3-c515-4203-a182-728fc35e9dbb">
+                    <input type="hidden" name="subject" value="Nova Inscrição na Newsletter - Nitel">
+                    <input type="hidden" name="from_name" value="Newsletter Nitel">
+
+                    <input 
+                        id="newsletter-email"
+                        name="email"
+                        class="bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3 focus:ring-primary focus:border-primary transition-all" 
+                        placeholder="Seu endereço de e-mail" 
+                        type="email" 
+                        required
+                    />
+
+                    <button 
+                        id="newsletter-btn"
+                        class="bg-primary text-white font-bold py-3 rounded-lg hover:bg-red-600 transition-all flex items-center justify-center gap-2" 
+                        type="submit"
+                    >
+                        <span id="btn-text">Fazer Parte</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-slate-500 text-sm">© 2026 Nitel - Rua: Cel Eugenio Mota, 433, Centro Boituva/SP, CEP 18550-000 - 04.067.223/0001-27 | Tel: (11) 4195-5351 </p>
+            <div class="flex gap-8 text-sm text-slate-500">
+                <a class="hover:text-primary transition-colors" href="politica-privacidade.html">Política de Privacidade</a>
+                <a class="hover:text-primary transition-colors" href="termos-uso.html">Termos de Serviço</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 1. Script do Formulário Newsletter
+    const form = document.getElementById('newsletter-form');
+    const btn = document.getElementById('newsletter-btn');
+    const btnText = document.getElementById('btn-text');
+    const input = document.getElementById('newsletter-email');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.classList.add('opacity-70', 'cursor-not-allowed');
+        btnText.innerHTML = '<i class="fas fa-spinner animate-spin"></i> Enviando...';
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status == 200) {
+                btn.classList.remove('bg-primary', 'hover:bg-red-600');
+                btn.classList.add('bg-green-500');
+                btnText.innerHTML = '<i class="fas fa-check"></i> Inscrito com Sucesso!';
+                input.value = "";
+                setTimeout(() => {
+                    btn.classList.remove('bg-green-500');
+                    btn.classList.add('bg-primary');
+                    btnText.innerHTML = 'Fazer Parte';
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                }, 5000);
+            } else {
+                btnText.innerHTML = "Erro ao enviar";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            btnText.innerHTML = "Algo deu errado";
+        });
+    });
+
+    // 2. Lógica de Alternância de Tema com Persistência
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Garante que só um ícone apareça por vez, controlado direto pelo JS
+    // (evita depender só das classes dark:hidden/dark:block do Tailwind)
+    function atualizarIconeTema() {
+        const modoEscuroAtivo = document.documentElement.classList.contains('dark');
+        themeToggleDarkIcon.style.display = modoEscuroAtivo ? 'inline-block' : 'none';
+        themeToggleLightIcon.style.display = modoEscuroAtivo ? 'none' : 'inline-block';
+    }
+
+    atualizarIconeTema(); // ajusta o ícone correto assim que a página carrega
+
+    themeToggleBtn.addEventListener('click', function() {
+        // Alterna a classe dark
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        }
+        atualizarIconeTema();
+    });
+
+    // 3. Carrossel do Banner Principal (Hero)
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    let heroSlideAtual = 0;
+    let heroIntervalo;
+
+    function mostrarSlide(indice) {
+        heroSlides.forEach((slide, i) => {
+            slide.style.opacity = (i === indice) ? '1' : '0';
+            slide.style.pointerEvents = (i === indice) ? 'auto' : 'none';
+        });
+        heroDots.forEach((dot, i) => {
+            dot.classList.toggle('bg-white', i === indice);
+            dot.classList.toggle('bg-white/40', i !== indice);
+        });
+        heroSlideAtual = indice;
+    }
+
+    function proximoSlide() {
+        mostrarSlide((heroSlideAtual + 1) % heroSlides.length);
+    }
+
+    function slideAnterior() {
+        mostrarSlide((heroSlideAtual - 1 + heroSlides.length) % heroSlides.length);
+    }
+
+    function iniciarAutoplayHero() {
+        heroIntervalo = setInterval(proximoSlide, 5000); // troca a cada 5 segundos
+    }
+
+    document.getElementById('hero-next')?.addEventListener('click', () => {
+        clearInterval(heroIntervalo);
+        proximoSlide();
+        iniciarAutoplayHero(); // reinicia a contagem após clique manual
+    });
+
+    document.getElementById('hero-prev')?.addEventListener('click', () => {
+        clearInterval(heroIntervalo);
+        slideAnterior();
+        iniciarAutoplayHero();
+    });
+
+    heroDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            clearInterval(heroIntervalo);
+            mostrarSlide(parseInt(dot.dataset.slide));
+            iniciarAutoplayHero(); // reinicia a contagem após clique manual
+        });
+    });
+
+    if (heroSlides.length > 1) {
+        iniciarAutoplayHero();
+    }
+
+    // 4. Configurações do Mapa e Lojas
+    const dadosLojas = {
+        'Tatui': { coords: [-23.35515, -47.84478], nome: "Nitel Tatuí - 175" },
+        'Boituva': { coords: [-23.28471, -47.67492], nome: "Nitel Boituva" },
+        'Tatui II': { coords: [-23.35339, -47.84275], nome: "Nitel Tatuí - 366" }
+    };
+
+    let map = null;
+    let marker = null;
+
+    if (typeof L === 'undefined') {
+        console.error('Leaflet não carregou. Verifique sua conexão ou bloqueadores de anúncio.');
+        document.getElementById('map').innerHTML = '<div class="w-full h-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 text-sm p-4 text-center">Não foi possível carregar o mapa. Recarregue a página.</div>';
+    } else {
+        map = L.map('map').setView(dadosLojas['Tatui'].coords, 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        marker = L.marker(dadosLojas['Tatui'].coords).addTo(map)
+                  .bindPopup('<b>Nitel Tatuí - 175</b>').openPopup();
+    }
+
+    // Sempre definida, mesmo se o mapa não carregar, para os cliques nos cards não quebrarem
+    function focarLoja(id, elemento) {
+        const loja = dadosLojas[id];
+        if (!loja) return;
+
+        if (map && marker) {
+            map.flyTo(loja.coords, 16, { duration: 1.5 });
+            marker.setLatLng(loja.coords).setPopupContent(`<b>${loja.nome}</b>`).openPopup();
+        }
+
+        const todosCards = document.querySelectorAll('.loja-card');
+        todosCards.forEach(card => {
+            card.classList.remove('border-primary', 'bg-primary/5', 'border-2');
+            card.classList.add('border', 'border-slate-200', 'dark:border-slate-800');
+        });
+
+        elemento.classList.remove('border', 'border-slate-200', 'dark:border-slate-800');
+        elemento.classList.add('border-2', 'border-primary', 'bg-primary/5');
+    }
+</script>
+
+</body>
+</html>
