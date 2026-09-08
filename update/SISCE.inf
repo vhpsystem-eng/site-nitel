@@ -1,0 +1,20 @@
+[update]
+newversion=3.1.0.25
+localversion=Estoque.exe
+descr=Nova versão 3.1.0.25 diponivel para atualização.
+
+[whatsnew]
+file=
+
+[files]
+count=1
+
+[file1]
+url=http://www.arquivos.nitel.com.br/update/estoque.cab
+descr=Application 
+
+[application]
+appupdate=1
+appname=Estoque.exe
+appcomps=estoque.cab
+silentrestart=1
