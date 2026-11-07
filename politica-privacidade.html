@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Política de Privacidade | Nitel</title>
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF3B45",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#0F1115",
+                    },
+                    fontFamily: {
+                        display: ["Outfit", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style type="text/tailwindcss">
+        .nitel-pattern {
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="group-hover:rotate-6 transition-transform">
+                        <img alt="Nitel Logo" class="h-10 w-10 object-contain" src="assets/logo.png"/>
+                    </div>
+                    <span class="font-display text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase italic">Nitel</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html">Início</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#collections">Coleções</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#stores">Nossas Lojas</a>
+                    <a class="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="contato.html">Contato</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <span id="theme-toggle-dark-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-400 hidden dark:block">light_mode</span>
+                    <span id="theme-toggle-light-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-400 dark:hidden">dark_mode</span>
+                </button>
+                <a class="bg-primary hover:bg-red-600 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 flex items-center gap-2" href="index.html#stores">
+                    <span class="material-symbols-outlined text-sm text-white">location_on</span>
+                    Encontre uma Loja
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-16 overflow-hidden">
+        <div class="absolute inset-0 nitel-pattern opacity-30 z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <div class="mb-8 text-left">
+                <a href="index.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-primary font-bold text-xs uppercase tracking-[0.2em] group transition-all">
+                    <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+                    Voltar para a Home
+                </a>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
+                POLÍTICA DE <span class="text-primary italic">PRIVACIDADE.</span>
+            </h1>
+            <p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto font-medium">
+                Compromisso com a transparência e a proteção total dos seus dados pessoais.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-16 pb-32">
+        <div class="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
+            
+            <div class="mb-12">
+                <h2 class="font-display text-3xl font-black uppercase mb-2 text-slate-900 dark:text-white">Transparência LGPD</h2>
+                <p class="text-xs font-bold uppercase tracking-widest text-primary">Última Atualização: 23 de Setembro de 2026</p>
+            </div>
+
+            <div class="space-y-12 text-slate-600 dark:text-slate-400">
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">1. Sobre esta Política</h3>
+                    <p class="leading-relaxed">
+                        Esta Política de Privacidade explica como a <strong>Nitel - Calçados e Confecções</strong> trata dados pessoais utilizados em seu site, no aplicativo Nitel e nos serviços relacionados ao atendimento de seus clientes.
+                        Nosso objetivo é oferecer transparência sobre quais dados são utilizados, para quais finalidades e quais são os direitos dos titulares, em conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</strong>.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">2. Dados Utilizados no App Nitel</h3>
+                    <p class="leading-relaxed mb-4">
+                        O aplicativo Nitel permite que o cliente consulte informações relacionadas ao seu crediário próprio, parcelas, pagamentos, cashback e compras. Para disponibilizar essas funcionalidades, podemos tratar os seguintes dados:
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>CPF:</strong> utilizado para identificar o cliente no cadastro Nitel e iniciar o processo de autenticação.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>Nome:</strong> utilizado para identificar e apresentar o cliente dentro do aplicativo.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>Identificador interno do cliente:</strong> utilizado pelo sistema Nitel para vincular as informações apresentadas ao cadastro correto.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>Informações do crediário:</strong> parcelas, valores, vencimentos, saldo, situação das parcelas e respectivos pagamentos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>Informações de compras:</strong> quando disponibilizadas no aplicativo, podem incluir histórico e informações relacionadas às compras realizadas nas lojas Nitel.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>Cashback:</strong> saldo, créditos e informações necessárias para demonstrar o cashback disponibilizado ao cliente.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span><strong>Token de notificações:</strong> o aplicativo pode utilizar um identificador fornecido pelo serviço de notificações da plataforma para permitir o envio de notificações ao dispositivo.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">3. Autenticação e Código por SMS</h3>
+                    <p class="leading-relaxed">
+                        Para acessar o aplicativo, o cliente informa seu CPF. O sistema Nitel verifica o cadastro e, quando houver telefone previamente registrado no cadastro do cliente, utiliza esse telefone para enviar um código de autenticação por SMS.
+                        O cliente informa esse código no aplicativo para concluir o acesso.
+                    </p>
+                    <p class="leading-relaxed mt-4">
+                        O aplicativo não acessa nem lê a caixa de entrada de SMS do dispositivo. O código é informado pelo próprio cliente.
+                        O número de telefone utilizado para o envio do código é mantido no cadastro Nitel e utilizado para essa finalidade de autenticação.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">4. Pagamento de Parcelas via Pix</h3>
+                    <p class="leading-relaxed">
+                        O aplicativo pode gerar um código Pix no formato <strong>Copia e Cola</strong> para que o cliente efetue o pagamento de uma parcela.
+                        Após copiar o código, o cliente realiza a operação diretamente no aplicativo ou ambiente de seu banco ou instituição de pagamento.
+                    </p>
+                    <p class="leading-relaxed mt-4">
+                        A Nitel não solicita no aplicativo senha bancária, número de cartão, código de segurança (CVV), senha do banco ou credenciais de acesso à instituição financeira.
+                        O aplicativo não realiza a transferência bancária em nome do cliente. A confirmação do pagamento é posteriormente utilizada pelo sistema Nitel para atualizar a situação da parcela.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">6. Finalidades do Tratamento</h3>
+                    <p class="leading-relaxed mb-4">Os dados podem ser utilizados para:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>autenticar e identificar o cliente no aplicativo;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>apresentar informações do crediário, parcelas, vencimentos e pagamentos;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>gerar informações necessárias para pagamento de parcelas via Pix;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>acompanhar a confirmação dos pagamentos e atualizar a situação das parcelas;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>apresentar saldo e movimentações de cashback;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>apresentar informações de compras disponibilizadas ao cliente;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>enviar notificações relacionadas aos serviços do aplicativo, quando habilitadas;</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            <span>atender solicitações, cumprir obrigações legais e exercer direitos em processos administrativos ou judiciais, quando aplicável.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">7. Compartilhamento de Dados</h3>
+                    <p class="leading-relaxed">
+                        A Nitel não comercializa dados pessoais de seus clientes.
+                        Os dados poderão ser compartilhados com fornecedores e prestadores de serviços que sejam necessários para a operação do aplicativo e de seus recursos, como serviços de autenticação, envio de SMS, notificações e infraestrutura tecnológica, sempre de acordo com a finalidade do serviço e com as medidas de segurança aplicáveis.
+                    </p>
+                    <p class="leading-relaxed mt-4">
+                        Também poderemos compartilhar dados quando necessário para cumprimento de obrigação legal ou regulatória, atendimento de determinação de autoridade competente ou exercício regular de direitos.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">8. Segurança das Informações</h3>
+                    <p class="leading-relaxed">
+                        Adotamos medidas técnicas e organizacionais destinadas a proteger os dados pessoais contra acessos não autorizados, perda, alteração, divulgação ou destruição indevida.
+                        O acesso às informações é limitado aos sistemas, pessoas e prestadores que necessitem delas para executar suas respectivas funções.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">9. Retenção dos Dados</h3>
+                    <p class="leading-relaxed">
+                        Os dados pessoais são mantidos pelo período necessário para cumprir as finalidades descritas nesta política, atender às obrigações legais e regulatórias aplicáveis, resolver eventuais solicitações ou disputas e exercer direitos da Nitel.
+                        Quando não houver mais necessidade legal ou operacional de manutenção, os dados poderão ser eliminados ou anonimizados, observadas as obrigações de retenção aplicáveis.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">10. Cookies e Navegação no Site</h3>
+                    <p class="leading-relaxed">
+                        O site da Nitel pode utilizar cookies e tecnologias semelhantes para funcionamento, preferências e melhoria da experiência de navegação.
+                        O uso de cookies do site é independente das funcionalidades de crediário, cashback e pagamentos do aplicativo.
+                        O usuário pode controlar cookies por meio das configurações do navegador, quando disponíveis.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">11. Direitos do Titular</h3>
+                    <p class="leading-relaxed mb-4">
+                        Nos termos da LGPD e observadas as hipóteses e limitações previstas na legislação, o titular pode solicitar informações sobre o tratamento de seus dados e exercer direitos aplicáveis, incluindo:
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            confirmação da existência de tratamento;
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            acesso aos dados pessoais tratados;
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            correção de dados incompletos, inexatos ou desatualizados;
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            informações sobre compartilhamento e tratamento dos dados, quando aplicável;
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                            eliminação ou anonimização, quando legalmente aplicável.
+                        </li>
+                    </ul>
+                    <p class="leading-relaxed mt-4">
+                        Algumas solicitações podem estar sujeitas a limitações legais, inclusive quando a manutenção dos dados for necessária para cumprimento de obrigação legal, regulatória ou exercício regular de direitos.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-4 border-l-4 border-primary pl-4 italic">12. Alterações nesta Política</h3>
+                    <p class="leading-relaxed">
+                        Esta Política de Privacidade poderá ser atualizada para refletir alterações nos serviços, nas funcionalidades do aplicativo, na legislação ou nos procedimentos de tratamento de dados.
+                        A versão mais recente estará sempre disponível nesta página.
+                    </p>
+                </section>
+
+                <section class="p-8 bg-slate-50 dark:bg-background-dark rounded-3xl border border-slate-100 dark:border-slate-800">
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white uppercase mb-2">Contato</h3>
+                    <p class="text-sm mb-4">
+                        Para dúvidas, solicitações relacionadas à privacidade ou exercício de direitos sobre seus dados pessoais, entre em contato através do e-mail:
+                    </p>
+                    <a href="mailto:contato@nitel.com.br" class="text-primary font-black text-lg hover:underline transition-all">
+                        contato@nitel.com.br
+                    </a>
+                </section>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 border-t border-slate-200 dark:border-slate-800 text-center">
+        <p class="text-slate-500 text-xs mb-4">© 2026 Nitel - Calçados e Confecções. Vestindo você e sua Familia.</p>
+    </footer>
+
+        <script>
+        // Lógica de Alternância de Tema
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+    </script>
+
+</body>
+</html>

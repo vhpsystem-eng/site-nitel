@@ -1,0 +1,29 @@
+name: Build e Deploy para Produção
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar Dependências
+        run: npm ci
+
+      # Executa o seu script exato do package.json
+      - name: Compilar Tailwind CSS
+        run: npm run build:css
+
+      # Etapa de envio para a hospedagem (Cloudflare Pages, VPS, etc.)

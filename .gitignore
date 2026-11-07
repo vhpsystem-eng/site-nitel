@@ -1,0 +1,35 @@
+# Ficheiros do sistema
+.DS_Store
+Thumbs.db
+
+# Logs de erro
+npm-debug.log*
+yarn-debug.log*
+
+# Ficheiros de ambiente/configurações locais
+.env
+.vscode/
+.idea/
+
+# Ignorar pastas
+node_modules/
+bak/
+assets/bak/
+
+# Ignorar arquivo específico de rascunho
+politica-privacidade-new.html
+
+# Ignorar outros backups/rascunhos se necessário
+*_old.html
+*-new.html
+
+# Ignorar arquivos de extensões específicas
+assets/*.zip
+assets/*.psd
+
+# Ignorar um arquivo específico dentro de assets
+assets/app-telaa.png
+
+# Ignorar todos os arquivos com sufixo _old ou _bak
+assets/**/*_old.*
+assets/**/*_bak.*
